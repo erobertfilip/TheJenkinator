@@ -14,10 +14,11 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <serenity.version>4.1.6</serenity.version>
+        <serenity.version>4.1.10</serenity.version>
         <junit-vintage-engine.version>5.10.2</junit-vintage-engine.version>
         <junit-platform-suite.version>1.10.2</junit-platform-suite.version>
         <cucumber-junit-platform-engine.version>7.16.1</cucumber-junit-platform-engine.version>
+        <logback.version>1.5.6</logback.version>
         <encoding>UTF-8</encoding>
 <!--        <tags></tags>-->
 <!--        <webdriver.base.url></webdriver.base.url>-->
@@ -84,6 +85,11 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>3.23.1</version>
@@ -105,10 +111,7 @@
                 <version>3.1.2</version>
                 <configuration>
                     <includes>
-                        <include>**/*Test.java</include>
-                        <include>**/Test*.java</include>
-                        <include>**/*TestSuite.java</include>
-                        <include>**/When*.java</include>
+                        <include>**/*Runner.java</include>
                     </includes>
 <!--                    <systemPropertyVariables>-->
 <!--                        <webdriver.base.url>${webdriver.base.url}</webdriver.base.url>-->
