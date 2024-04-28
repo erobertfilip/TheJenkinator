@@ -1,5 +1,6 @@
 package Steps;
 
+import io.cucumber.java.AfterAll;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -8,10 +9,22 @@ import net.serenitybdd.core.Serenity;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class MyStepdefs {
 
-    private final WebDriver driver = Serenity.getDriver();
+    ChromeOptions chromeOptions = new ChromeOptions();
+
+    //    private final WebDriver driver = Serenity.getDriver();
+    private final WebDriver driver = new RemoteWebDriver(new URL("http://127.0.0.1:4444"),chromeOptions);
+
+    public MyStepdefs() throws MalformedURLException {
+    }
+
 
     @Given("I do the first step")
     public void iDoTheFirstStep() {
@@ -32,5 +45,6 @@ public class MyStepdefs {
     public void iGetAResult() {
         driver.findElement(By.xpath("//a/*[contains(text(),'magazin')]/..")).click();
         driver.findElement(By.xpath("//*[contains(text(),'Cantaloupe')]")).isDisplayed();
+        driver.quit();
     }
 }
