@@ -17,13 +17,9 @@ import java.net.URL;
 
 public class MyStepdefs {
 
-    ChromeOptions chromeOptions = new ChromeOptions();
+    private final WebDriver driver = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), new ChromeOptions());
 
-    //    private final WebDriver driver = Serenity.getDriver();
-    private final WebDriver driver = new RemoteWebDriver(new URL("http://127.0.0.1:4444"),chromeOptions);
-
-    public MyStepdefs() throws MalformedURLException {
-    }
+    public MyStepdefs() throws MalformedURLException {}
 
 
     @Given("I do the first step")
