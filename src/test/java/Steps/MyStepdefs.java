@@ -17,11 +17,17 @@ import java.net.URL;
 
 public class MyStepdefs {
 
-    private final WebDriver driver;
+    private WebDriver driver;
 
-    public MyStepdefs() throws MalformedURLException {
-        driver = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), new ChromeOptions());
+    {
+        try {
+            driver = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), new ChromeOptions());
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        }
     }
+
+    public MyStepdefs(){}
 
 
     @Given("I do the first step")
