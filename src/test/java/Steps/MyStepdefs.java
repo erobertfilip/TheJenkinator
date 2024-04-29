@@ -17,13 +17,11 @@ import java.net.URL;
 
 public class MyStepdefs {
 
-    private final WebDriver driver = Serenity.getDriver();
-
-    public MyStepdefs(){}
-
+    private WebDriver driver;
 
     @Given("I do the first step")
     public void iDoTheFirstStep() {
+        driver = Serenity.getDriver();
         driver.get("https://www.capriciicolorate.ro");
     }
 
